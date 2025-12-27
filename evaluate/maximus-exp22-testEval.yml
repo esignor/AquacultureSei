@@ -1,0 +1,44 @@
+ops: [evaluate]
+
+model: {
+    path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/model/sei.py,
+    class: Sei,
+    class_args: {
+        sequence_length: 4096,
+        n_genomic_features: 89,
+    }
+}
+
+sampler: !obj:selene_sdk.samplers.RandomPositionsSampler {
+    target_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_scophthalmus_maximus/peaks/scophthalmus_maximus_sorted_atac_chip-seq_chrs1_22.bed.gz,
+    reference_sequence: !obj:selene_sdk.sequences.Genome {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/resources/maximus_UCSC.fa
+    },
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_scophthalmus_maximus/peaks/cromatine_profiles_maximus.txt
+    },
+    sequence_length: 4096,
+    center_bin_to_predict: [2048, 2049],
+    validation_holdout: [15, 16, 17, 18, 19, 20, 21, 22],
+    test_holdout: [],
+    mode: test
+}
+
+evaluate_model: !obj:selene_sdk.EvaluateModel {
+    trained_model_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/models/maximus/exp22/2025-07-28-10-42-24-SCO4WEPO/best_model.pth.tar,
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_scophthalmus_maximus/peaks/cromatine_profiles_maximus.txt
+    },
+    batch_size: 64,
+    n_test_samples: 0,
+    use_cuda: True,
+    metrics: {
+        roc_auc: !import sklearn.metrics.roc_auc_score,
+        average_precision: !import sklearn.metrics.average_precision_score
+    }
+}
+
+output_dir: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/evaluate/testset_metrics/maximus/exp22/
+random_seed: 1447
+...
+

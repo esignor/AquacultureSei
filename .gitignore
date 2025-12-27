@@ -1,0 +1,21 @@
+# Ignore all data files in the model folder
+model/*.pth
+model/*.names
+model/*.npy
+*.bed
+SEI-join-varianteffect/*.swm
+EI-join-varianteffect/*.swp
+
+
+# Ignore all temporary files
+*.tmp
+*.log
+
+# Ignore large output folders
+output/
+
+# Optional: editor and OS-specific files
+*.swp
+*.DS_Store
+.idea/
+.vscode/

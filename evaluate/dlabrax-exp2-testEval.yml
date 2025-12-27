@@ -1,0 +1,44 @@
+ops: [evaluate]
+
+model: {
+    path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/model/sei.py,
+    class: Sei,
+    class_args: {
+        sequence_length: 4096,
+        n_genomic_features: 103,
+    }
+}
+
+sampler: !obj:selene_sdk.samplers.RandomPositionsSampler {
+    target_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_dlabrax2021/peaks/dlabrax_sorted_atac_chip-seq_chrs1-24.bed.gz,
+    reference_sequence: !obj:selene_sdk.sequences.Genome {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/resources/dlabrax_UCSC.fa
+    },
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_dlabrax2021/peaks/cromatine_profiles_dlabrax.txt
+    },
+    sequence_length: 4096,
+    center_bin_to_predict: [2048, 2049],
+    validation_holdout: [CAJNNU010000021.1, CAJNNU010000022.1, CAJNNU010000023.1, CAJNNU010000024.1],
+    test_holdout: [CAJNNU010000019.1, CAJNNU010000020.1],
+    mode: test
+}
+
+evaluate_model: !obj:selene_sdk.EvaluateModel {
+    trained_model_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/models/dlabrax2021/exp2/2025-06-19-09-25-27-E6TEPDBJ/best_model.pth.tar,
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_dlabrax2021/peaks/cromatine_profiles_dlabrax.txt
+    },
+    batch_size: 64,
+    n_test_samples: 176789,
+    use_cuda: True,
+    metrics: {
+        roc_auc: !import sklearn.metrics.roc_auc_score,
+        average_precision: !import sklearn.metrics.average_precision_score
+    }
+}
+
+output_dir: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/evaluate/testset_metrics/exp2/
+random_seed: 1447
+...
+

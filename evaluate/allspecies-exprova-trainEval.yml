@@ -1,0 +1,41 @@
+---
+ops: [evaluate]
+model: {
+    path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/model/sei.py,
+    class: Sei,
+    class_args: {
+        sequence_length: 4096,
+        n_genomic_features: 304,
+    }
+}
+sampler: !obj:selene_sdk.samplers.RandomPositionsSampler {
+    target_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_carpio_maximus_mykiss_salmosalar/data/UniqueModel/data_sorted_carpio_maximus_mykiss_salmosalar.bed.gz,
+    reference_sequence: !obj:selene_sdk.sequences.Genome {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/resources/UniqueUCSC/carpio_maximus_mykiss_salmosalar_UCSC.fa
+    },
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_carpio_maximus_mykiss_salmosalar/cromatine_profiles/cromatine_profiles_carpio_maximus_mykiss_salmosalar_nodup.txt
+    },
+    sequence_length: 4096,
+    center_bin_to_predict: [2048, 2049],
+    validation_holdout: [carpioCAJNDQ010000043.1, carpioCAJNDQ010000044.1, carpioCAJNDQ010000045.1, carpioCAJNDQ010000046.1, carpioCAJNDQ010000047.1, carpioCAJNDQ010000048.1, carpioCAJNDQ010000049.1, carpioCAJNDQ010000050.1, maximus15, maximus16, maximus17, maximus18, maximus19, maximus20, maximus21, maximus22,mykiss23, mykiss24, mykiss25, mykiss26, mykiss27, mykiss28, mykiss30, mykiss32, salmosalar22, salmosalar23, salmosalar24, salmosalar25, salmosalar26, salmosalar27, salmosalar28, salmosalar29],
+    test_holdout: [carpioCAJNDQ010000039.1, carpioCAJNDQ010000040.1, carpioCAJNDQ010000041.1, carpioCAJNDQ010000042.1, maximus11, maximus12, maximus13, maximus14, mykiss19, mykiss20, mykiss21, mykiss22, salmosalar18, salmosalar19, salmosalar20, salmosalar21],
+    mode: train
+}
+evaluate_model: !obj:selene_sdk.EvaluateModel {
+    trained_model_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/models/ALLSPECIES/prova/2025-07-30-09-07-20-IE20FVZH/best_model.pth.tar,
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/train/data/data_carpio_maximus_mykiss_salmosalar/cromatine_profiles/cromatine_profiles_carpio_maximus_mykiss_salmosalar_nodup.txt
+    },
+    batch_size: 64,
+    n_test_samples: 7006139,
+    use_cuda: True,
+    metrics: {
+        roc_auc: !import sklearn.metrics.roc_auc_score,
+        average_precision: !import sklearn.metrics.average_precision_score
+    }
+}
+output_dir: /nfsd/bcb/bcbg/EleonoraSignor/sei-framework/evaluate/trainset_metrics/ALLSPECIES/prova/
+random_seed: 1447
+...
+
