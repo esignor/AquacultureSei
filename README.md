@@ -1,1 +1,1 @@
-# aqualculture-sei-framework
+# aquaculture-sei-framework
