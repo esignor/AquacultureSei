@@ -1,0 +1,26 @@
+---
+ops: [analyze]
+model: {
+    path: <PATH>/model/sei.py,
+    class: Sei,
+    class_args: {
+        sequence_length: 4096,
+        n_genomic_features: 103
+    },
+    non_strand_specific: mean
+}
+analyze_sequences: !obj:selene_sdk.predict.AnalyzeSequences {
+    sequence_length: 4096,
+    batch_size: 64,
+    trained_model_path: <PATH>/model/dlabarax2021_models/exp22-model_sei.pth,
+    features: !obj:selene_sdk.utils.load_features_list {
+        input_path: <PATH>/model/target_dlabrax2021.names
+    },
+    write_mem_limit: 1000
+}
+variant_effect_prediction: {
+    save_data: [diffs, predictions],
+    output_format: hdf5
+}
+random_seed: 999
+...
