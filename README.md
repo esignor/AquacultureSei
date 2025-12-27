@@ -121,7 +121,7 @@ GPUs used for training, CPUs for variant effect prediction.
 
     ``git clone https://github.com/FunctionLab/sei-framework``
 
-    ``git clone <https://github.com/esignor/AquacultureSei>``
+    ``git clone https://github.com/esignor/AquacultureSei``
 
 
 2. Install dependencies from SEI and this extension.
