@@ -1,1 +1,1 @@
-# aquaculture-sei-framework
+# AquacultureSei Framework
