@@ -1,1 +1,1 @@
-# seabasses-sei-framework
+# aqualculture-sei-framework
