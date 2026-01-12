@@ -34,23 +34,6 @@ This extension supports both **single-species** and **multi-species** models, al
 
 Datasets consist of **reference genomes** and **chromatin profiles** obtained from ATAC-seq and ChIP-seq experiments, mostly sourced from [Ensembl](https://www.ensembl.org/index.html) and the **AQUA-FAANG project**. Regulatory peaks mapped to very short contigs were excluded to ensure data consistency.
 
-| Species      | #Chromatin Profiles | Chromosomes | #Bins     | Resources                                                                                                                                                                                                     |
-| ------------ | ------------------- | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| D. labrax    | 103                 | 1–24        | 1,694,859 | [Reference genome](https://ftp.ensembl.org/pub/current_fasta/dicentrarchus_labrax/dna/), [Regulatory profiles](https://ftp.ensembl.org/pub/current_regulation/dicentrarchus_labrax/dlabrax2021/peaks/)        |
-| C. c. carpio | 62                  | 1–50        | 1,410,575 | [Reference genome](https://ftp.ensembl.org/pub/current_fasta/cyprinus_carpio_carpio/dna/), [Regulatory profiles](https://ftp.ensembl.org/pub/current_regulation/cyprinus_carpio_carpio/Cypcar_WagV4.0/peaks/) |
-| O. mykiss    | 68                  | 1–32        | 2,658,264 | [Reference genome](https://ftp.ensembl.org/pub/current_fasta/oncorhynchus_mykiss/dna/), [Regulatory profiles](https://ftp.ensembl.org/pub/current_regulation/oncorhynchus_mykiss/USDA_OmykA_1.1/peaks/)       |
-| S. maximus   | 89                  | 1–22        | 978,399   | [Reference genome](https://ftp.ensembl.org/pub/current_fasta/scophthalmus_maximus/dna/), [Regulatory profiles](https://ftp.ensembl.org/pub/current_regulation/scophthalmus_maximus/ASM1334776v1/peaks/)       |
-| S. salar     | 100                 | 1–29        | 5,061,437 | [Reference genome](https://ftp.ensembl.org/pub/current_fasta/salmo_salar/dna/), [Regulatory profiles](https://ftp.ensembl.org/pub/current_regulation/salmo_salar/Ssal_v3.1/peaks/)                            |
-
-
-SNP subsets for D. labrax include:
-
-- 6,072,853 SNPs from AQUA-FAANG
-
-- 3,858,173 SNPs from 65 natural individuals (NCBI)
-
-- 27,930 SNPs with known biological relevance
-
 ## Model Architecture
 
 The **SEI architecture** includes:
