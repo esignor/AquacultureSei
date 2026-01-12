@@ -16,7 +16,7 @@ Please note that all modifications and extensions in this repository follow the 
 
 ## Highlights of Extension
 
-* Adapted SEI framework for **aquaculture species**: European sea bass, carp, rainbow trout, turbot, and Atlantic salmon.
+* Adapted SEI framework for **aquaculture species**.
 
 * Developed **multi-species model training** with genome concatenation, unique chromosome identifiers, and merged regulatory peaks.
 
