@@ -65,17 +65,6 @@ Linear blocks facilitate learning linear dependencies, while nonlinear blocks in
 
 ## Multi-Species Integration
 
-For multi-species models:
-
-* Reference genomes concatenated with **unique chromosome identifiers**
-
-* Regulatory peaks merged; duplicates removed to prevent bias
-
-* Peaks assigned to species-specific IDs for traceability
-
-* Training, validation, and test sets balanced by chromosome to avoid linkage issues
-
-This strategy enables **cross-species regulatory pattern learning** and generalization to untrained species.
 
 ## Variant Effect Prediction
 
