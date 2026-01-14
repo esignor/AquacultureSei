@@ -118,6 +118,6 @@ Kathleen M. Chen, Aaron K. Wong, Olga G. Troyanskaya, and Jian Zhou. A sequence-
 
 #### AQUA-FAANG project
 
-Richard Mukiibi, Silvia Ferraresso, Raffaella Franch, Laura Peruzza, Giulia Dalla Rovere, Massimiliano Babbucci, Daniela Bertotto, Anna Toffan, Francesca Pascoli, Stefano Faggion, Cristián Peñaloza, Costas S. Tsigenopoulos, Ross D. Houston, Luca Bargelloni, and Diego Robledo. *Integrated functional genomic analysis identifies regulatory variants underlying a major QTL for disease resistance in European sea bass*. BMC Biology, 23(1):75, 2025.  
+Richard Mukiibi, Silvia Ferraresso, Raffaella Franch, Laura Peruzza, Giulia Dalla Rovere, Massimiliano Babbucci, Daniela Bertotto, Anna Toffan, Francesca Pascoli, Sara Faggion, Cristián Peñaloza, Costas S. Tsigenopoulos, Ross D. Houston, Luca Bargelloni, and Diego Robledo. *Integrated functional genomic analysis identifies regulatory variants underlying a major QTL for disease resistance in European sea bass*. BMC Biology, 23(1):75, 2025.  
 
 Robert Mukiibi, Serena Ferraresso, Rafaella Franch, Luca Peruzza, Giulia Dalla Rovere, Massimiliano Babbucci, Daniela Bertotto, Anna Toffan, Francesco Pascoli, Sara Faggion, Carolina Peñaloza, Costas S. Tsigenopoulos, Ross D. Houston, Luca Bargelloni, and Diego Robledo. *Integrated functional genomic analysis identifies the regulatory variants underlying a major QTL for disease resistance in European sea bass*. bioRxiv, 2024.  
